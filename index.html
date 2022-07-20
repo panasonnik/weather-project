@@ -8,6 +8,10 @@
       src="https://kit.fontawesome.com/a0c784d1ee.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -38,32 +42,33 @@
                 class="form-control"
                 type="submit"
                 value="Check weather"
+                id="submit-btn"
               />
           </div>
         </form>
         <div class="col-auto">
-          <button class="my-location">
+          <button class="btn-location">
             <i class="fa-solid fa-location-dot"></i>
           </button>
         </div>
         <div class="row">
-          <div class="col-1">
+          <div class="col-auto">
             <i class="fa-solid fa-sun weather-icon" id="main-icon"></i>
           </div>
           <div class="col-6 header">
             <h1>
               <span id="temperature">22</span>
-              <span class="units"> °C | °F </span>
+              <span class="units"> °C |°F </span>
             </h1>
             <h1 id="city">Kyiv</h1>
           </div>
-          <div class="col-5">
+          <div class="col-auto">
             <ul>
-              <li>Wednesday 18:06</li>
+              <li id="date"><strong>Wednesday 18:06</strong></li>
               <br />
               <li>Humidity: 80%</li>
               <li>Wind speed: 3 km/h</li>
-              <li>Cloudy</li>
+              <li id="description"><strong>Cloudy</strong></li>
             </ul>
           </div>
         </div>
