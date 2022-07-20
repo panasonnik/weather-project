@@ -20,6 +20,32 @@
   <body>
     <div class="container card">
       <div class="card-body">
+        <form class="search-city-form">
+          <div class="row">
+            <div class="col-6">
+              <div class="input-group mb-3">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Enter the city"
+                  autocomplete="off"
+                  autofocus="on"
+                />
+              </div>
+            </div>
+            <div class="col-auto">
+              <input
+                class="form-control"
+                type="submit"
+                value="Check weather"
+              />
+          </div>
+        </form>
+        <div class="col-auto">
+          <button class="my-location">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </div>
         <div class="row">
           <div class="col-1">
             <i class="fa-solid fa-sun weather-icon" id="main-icon"></i>
