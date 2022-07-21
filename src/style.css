@@ -2,9 +2,19 @@ ul {
   list-style: none;
   margin-top: 30px;
 }
-
+a {
+  text-decoration: none;
+  color: #6f4c5b;
+}
 hr {
   border-top: 3px solid #000;
+}
+.active {
+  font-weight: bold;
+}
+.active:hover {
+  cursor: default;
+  color: #6f4c5b;
 }
 .card {
   width: 60%;

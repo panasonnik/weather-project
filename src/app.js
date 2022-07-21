@@ -31,9 +31,9 @@ function handleSubmit(event) {
 function getWeather(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   let mainTemp = document.querySelector("#temperature");
-  mainTemp.innerHTML = temperature;
+  mainTemp.innerHTML = celsiusTemperature;
 
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(
@@ -49,10 +49,33 @@ function getPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getWeather);
 }
+function showFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let mainTemp = document.querySelector("#temperature");
+  mainTemp.innerHTML = fahrenheitTemperature;
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
+}
+function showCelsius(event) {
+  document.querySelector("#temperature").innerHTML = celsiusTemperature;
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+}
 formatDate(new Date());
+axios
+  .get(
+    `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=63116731662a94eebc651f7bb7447ea1&units=metric`
+  )
+  .then(getWeather);
 let searchForm = document.querySelector(".search-city-form");
 searchForm.addEventListener("submit", handleSubmit);
 let locationButton = document.querySelector(".btn-location");
 locationButton.addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(getPosition);
 });
+let celsius = document.querySelector(".celsius-link");
+let celsiusTemperature = null;
+let fahrenheit = document.querySelector(".fahrenheit-link");
+fahrenheit.addEventListener("click", showFahrenheit);
+celsius.addEventListener("click", showCelsius);
