@@ -40,7 +40,14 @@ function getWeather(response) {
     response.data.wind.speed
   );
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
+  let weatherIcon = document.querySelector("#main-icon");
+  let apiIcon = response.data.weather[0].icon;
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${apiIcon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 function getPosition(position) {
   let lat = position.coords.latitude;

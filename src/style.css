@@ -57,8 +57,9 @@ hr {
 }
 #main-icon {
   font-size: 70px;
-  margin: 55px 4px;
-  color: #6f4c5b;
+  margin: 50px 4px;
+  border: 2px solid #ac7d88;
+  border-radius: 10px;
 }
 .header {
   margin: 10px 0;
@@ -75,6 +76,9 @@ hr {
   top: -46px;
   left: -30px;
   font-weight: normal;
+}
+#description::first-letter {
+  text-transform: capitalize;
 }
 .day-of-week,
 .weather-icon,
