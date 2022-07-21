@@ -21,8 +21,9 @@ function formatDate(date) {
   let formattedDate = `${day} ${hour}:${minutes}`;
   dateElement.innerHTML = formattedDate;
 }
-function handleSubmit() {
-  let city = "Paris";
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector(".entered-city").value;
   let apiKey = "63116731662a94eebc651f7bb7447ea1";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(getWeather);
@@ -42,4 +43,5 @@ function getWeather(response) {
     response.data.weather[0].main;
 }
 formatDate(new Date());
-handleSubmit();
+let searchForm = document.querySelector(".search-city-form");
+searchForm.addEventListener("submit", handleSubmit);
