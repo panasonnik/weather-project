@@ -42,6 +42,17 @@ function getWeather(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 }
+function getPosition(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  let apiKey = "63116731662a94eebc651f7bb7447ea1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(getWeather);
+}
 formatDate(new Date());
 let searchForm = document.querySelector(".search-city-form");
 searchForm.addEventListener("submit", handleSubmit);
+let locationButton = document.querySelector(".btn-location");
+locationButton.addEventListener("click", function () {
+  navigator.geolocation.getCurrentPosition(getPosition);
+});
