@@ -65,6 +65,7 @@ function showFahrenheit(event) {
   celsius.classList.remove("active");
 }
 function showCelsius(event) {
+  event.preventDefault();
   document.querySelector("#temperature").innerHTML = celsiusTemperature;
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
