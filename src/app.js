@@ -70,6 +70,25 @@ function showCelsius(event) {
   celsius.classList.add("active");
   fahrenheit.classList.remove("active");
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-container");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML = `${forecastHTML}
+      <div class="col-2">
+        <div class="forecast-day">${day}</div>
+          <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="Clouds" width="60" class="forecast-img">
+             <div class="forecast-temperature">
+               <span class="forecast-max-temperature">23°</span>/
+               <span class="forecast-min-temperature">17°</span>
+              </div>
+      </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 formatDate(new Date());
 axios
   .get(
@@ -87,3 +106,5 @@ let celsiusTemperature = null;
 let fahrenheit = document.querySelector(".fahrenheit-link");
 fahrenheit.addEventListener("click", showFahrenheit);
 celsius.addEventListener("click", showCelsius);
+
+displayForecast();
